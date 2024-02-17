@@ -35,7 +35,7 @@ std::vector<T> operator*(const Dense<T>& dense, const std::vector<T>& v) {
     std::vector<T> res(dense.get_cols());
     for (int i = 0; i < dense.get_cols(); i++) {
         for (int j = 0; j < dense.get_rows(); j++){
-            res[i] += dense[dense.get_rows() * i + j] * v[j];
+            res[i] += dense.get_values()[dense.get_rows() * i + j] * v[j];
         }
     }
     return res;
@@ -43,7 +43,7 @@ std::vector<T> operator*(const Dense<T>& dense, const std::vector<T>& v) {
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const Dense<T>& dense) {
-    const std::vector<T> values = csr.get_values();
+    const std::vector<T> values = dense.get_values();
     int cols = dense.get_cols();
     int rows = dense.get_rows();
     for (int i = 0; i < cols; i++){
