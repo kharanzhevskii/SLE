@@ -1,6 +1,6 @@
 #include "tridiagonal.h"
 
-std::vector<double> tridiagonal(std::vector<double>& A, int n){
+std::vector<double> tridiagonal(const std::vector<double>& A, int n){
     std::vector<double> p(n);
     std::vector<double> q(n);
     std::vector<double> x(n+1);
