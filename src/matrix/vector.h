@@ -4,28 +4,10 @@
 #include <iostream>
 
 template<typename T>
-std::vector<T> operator+=(const std::vector<T>& first, const std::vector<T>& second){
-    std::vector<T> res(first.size());
-    for (int i = 0; i < first.size(); i++){
-        res[i] = first[i] + second[i];
-    }
-    return res;
-}
-
-template<typename T>
 std::vector<T> operator+(const std::vector<T>& first, const std::vector<T>& second){
     std::vector<T> res(first.size());
     for (int i = 0; i < first.size(); i++){
         res[i] = first[i] + second[i];
-    }
-    return res;
-}
-
-template<typename T>
-std::vector<T> operator-=(const std::vector<T>& first, const std::vector<T>& second){
-    std::vector<T> res(first.size());
-    for (int i = 0; i < first.size(); i++){
-        res[i] = first[i] - second[i];
     }
     return res;
 }
@@ -39,8 +21,8 @@ std::vector<T> operator-(const std::vector<T>& first, const std::vector<T>& seco
     return res;
 }
 
-template<typename T, typename Q>
-std::vector<T> operator*(const std::vector<T>& first, Q second){
+template<typename T>
+std::vector<T> operator*(const std::vector<T>& first, T second){
 	std::vector<T> res(first.size());
 	for(int i = 0; i < first.size(); i++){
         res[i] = first[i] * second;
@@ -48,17 +30,8 @@ std::vector<T> operator*(const std::vector<T>& first, Q second){
 	return res;
 }
 
-template<typename T, typename Q>
-std::vector<T> operator*(Q second, const std::vector<T>& first){
-	std::vector<T> res(first.size());
-	for(int i = 0; i < first.size(); i++){
-        res[i] = first[i] * second;
-    }
-	return res;
-}
-
-template<typename T, typename Q>
-std::vector<T> operator*=(const std::vector<T>& first, Q second){
+template<typename T>
+std::vector<T> operator*(T second, const std::vector<T>& first){
 	std::vector<T> res(first.size());
 	for(int i = 0; i < first.size(); i++){
         res[i] = first[i] * second;
