@@ -13,11 +13,9 @@ int main(int argc, char** argv){
     CSR<double> csr(val, col, row);
     Dense<double> dense(vald, c, r);
     std::vector<double> mul{1, 2, 3, 4};
-    std::vector<double> one, two, three(3, 0);
+    std::vector<double> one, two;
     one = csr * mul;
     two = dense * mul;
-    three += two;
-    three -= one;
-    std::cout << csr << dense << one << two << three;
+    std::cout << csr << dense << one << two;
     return 0;
 }

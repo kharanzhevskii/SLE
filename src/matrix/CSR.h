@@ -12,18 +12,15 @@ public:
     CSR (const std::vector<T>& values, const std::vector<int>& cols, const std::vector<int>& rows):
         values(values), cols(cols), rows(rows) {}
 
-    const std::vector<T> get_values() const{
+    const std::vector<T>& get_values() const{
         return values;
     }
-    const std::vector<int> get_cols() const{
+    const std::vector<int>& get_cols() const{
         return cols;
     }
-    const std::vector<int> get_rows() const{
+    const std::vector<int>& get_rows() const{
         return rows;
     }
-
-    CSR (const CSR<T>& m): values(m.get_values()), cols(m.get_cols()), rows(m.get_rows()) {}
-    ~CSR() {}
 
     T operator()(int i, int j) const {
         for (int k = rows[i]; k < rows[i + 1]; k++) {

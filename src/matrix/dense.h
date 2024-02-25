@@ -12,7 +12,7 @@ public:
     Dense (const std::vector<T>& values, int cols, int rows):
         values(values), cols(cols), rows(rows) {}
     
-    const std::vector<T> get_values() const{
+    const std::vector<T>& get_values() const{
         return values;
     }
     const int get_cols() const{
@@ -21,9 +21,6 @@ public:
     const int get_rows() const{
         return rows;
     }
-
-    Dense (const Dense<T>& m): values(m.get_values()), cols(m.get_cols()), rows(m.get_rows()) {}
-    ~Dense() {}
 
     T operator()(int i, int j) const {
         return values[rows * i + j];

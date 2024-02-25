@@ -4,14 +4,14 @@
 
 void CSR_multiplier(){
     std::ofstream filefat;
-    filefat.open ("CSR_fat_O0.txt");
+    filefat.open ("CSR_fat_O2.txt");
     std::ofstream filethin;
-    filethin.open ("CSR_thin_O0.txt");
+    filethin.open ("CSR_thin_O2.txt");
 
     std::vector<int> values, cols, rows, mfat, mthin, result;
     int num;
     std::chrono::high_resolution_clock::time_point begin, end;
-    for (int n = 10; n <= 2500; n+=5){
+    for (int n = 10; n <= 5000; n+=5){
         values.resize(3*n-2);
         cols.resize(3*n-2);
         rows.resize(n+1);

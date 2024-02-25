@@ -6,7 +6,7 @@
 template<typename T>
 std::vector<T> operator+(const std::vector<T>& first, const std::vector<T>& second){
     std::vector<T> res(first.size());
-    for (int i = 0; i < first.size(); i++){
+    for (std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] + second[i];
     }
     return res;
@@ -15,7 +15,7 @@ std::vector<T> operator+(const std::vector<T>& first, const std::vector<T>& seco
 template<typename T>
 std::vector<T> operator-(const std::vector<T>& first, const std::vector<T>& second){
     std::vector<T> res(first.size());
-    for (int i = 0; i < first.size(); i++){
+    for (std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] - second[i];
     }
     return res;
@@ -24,7 +24,7 @@ std::vector<T> operator-(const std::vector<T>& first, const std::vector<T>& seco
 template<typename T>
 std::vector<T> operator*(const std::vector<T>& first, T second){
 	std::vector<T> res(first.size());
-	for(int i = 0; i < first.size(); i++){
+	for(std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] * second;
     }
 	return res;
@@ -33,7 +33,7 @@ std::vector<T> operator*(const std::vector<T>& first, T second){
 template<typename T>
 std::vector<T> operator*(T second, const std::vector<T>& first){
 	std::vector<T> res(first.size());
-	for(int i = 0; i < first.size(); i++){
+	for(std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] * second;
     }
 	return res;
@@ -42,7 +42,7 @@ std::vector<T> operator*(T second, const std::vector<T>& first){
 template<typename T>
 T operator*(const std::vector<T>& first, const std::vector<T>& second){
     T res = 0;
-    for (int i = 0; i < first.size(); i++){
+    for (std::size_t i = 0; i < first.size(); i++){
         res += first[i] * second[i];
     }
     return res;
@@ -50,7 +50,7 @@ T operator*(const std::vector<T>& first, const std::vector<T>& second){
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& first){
-    for (int i = 0; i < first.size(); i++){
+    for (std::size_t i = 0; i < first.size(); i++){
         std::cout << first[i] << std::endl;
     }
     return os;
