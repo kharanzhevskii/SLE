@@ -1,6 +1,6 @@
 find_package(GTest REQUIRED)
 
-file(GLOB_RECURSE TEST_SOURCES test_matrix.cpp)
+file(GLOB_RECURSE TEST_SOURCES test_jacobi.cpp)
 
 foreach (TEST_FILE IN LISTS TEST_SOURCES)
     get_filename_component(TEST_FILE_NAME ${TEST_FILE} NAME_WE)

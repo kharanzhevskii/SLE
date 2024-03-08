@@ -3,45 +3,45 @@
 #include <vector>
 #include <iostream>
 
-template<typename T>
-std::vector<T> operator+(const std::vector<T>& first, const std::vector<T>& second){
-    std::vector<T> res(first.size());
+template<typename T, typename Q>
+std::vector<decltype(std::declval<T>() + std::declval<Q>())> operator+(const std::vector<T>& first, const std::vector<Q>& second){
+    std::vector<decltype(std::declval<T>() + std::declval<Q>())> res(first.size());
     for (std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] + second[i];
     }
     return res;
 }
 
-template<typename T>
-std::vector<T> operator-(const std::vector<T>& first, const std::vector<T>& second){
-    std::vector<T> res(first.size());
+template<typename T, typename Q>
+std::vector<decltype(std::declval<T>() + std::declval<Q>())> operator-(const std::vector<T>& first, const std::vector<Q>& second){
+    std::vector<decltype(std::declval<T>() + std::declval<Q>())> res(first.size());
     for (std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] - second[i];
     }
     return res;
 }
 
-template<typename T>
-std::vector<T> operator*(const std::vector<T>& first, T second){
-	std::vector<T> res(first.size());
+template<typename T, typename Q>
+std::vector<decltype(std::declval<T>() + std::declval<Q>())> operator*(const std::vector<T>& first, Q second){
+	std::vector<decltype(std::declval<T>() + std::declval<Q>())> res(first.size());
 	for(std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] * second;
     }
 	return res;
 }
 
-template<typename T>
-std::vector<T> operator*(T second, const std::vector<T>& first){
-	std::vector<T> res(first.size());
+template<typename T, typename Q>
+std::vector<decltype(std::declval<T>() + std::declval<Q>())> operator*(T second, const std::vector<Q>& first){
+	std::vector<decltype(std::declval<T>() + std::declval<Q>())> res(first.size());
 	for(std::size_t i = 0; i < first.size(); i++){
         res[i] = first[i] * second;
     }
 	return res;
 }
 
-template<typename T>
-T operator*(const std::vector<T>& first, const std::vector<T>& second){
-    T res = 0;
+template<typename T, typename Q>
+decltype(std::declval<T>() + std::declval<Q>()) operator*(const std::vector<T>& first, const std::vector<Q>& second){
+    decltype(std::declval<T>() + std::declval<Q>()) res = 0;
     for (std::size_t i = 0; i < first.size(); i++){
         res += first[i] * second[i];
     }

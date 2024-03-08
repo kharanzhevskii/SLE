@@ -3,13 +3,11 @@ if (USE_GLOB)
     add_library(${MODULE_NAME} STATIC ${SOURCES})
 else ()
     set(HEADERS
-        matrix/CSR.h
-        matrix/dense.h
-        matrix/vector.h 
+        iterative/jacobi.h
         )
 
-    #set(SOURCES
-    #    )
+    set(SOURCES
+        )
 
     source_group("Header Files" FILES ${HEADERS})
     source_group("Source Files" FILES ${SOURCES})

@@ -32,10 +32,10 @@ public:
     }
 };
 
-template<typename T>
-std::vector<T> operator*(const CSR<T>& csr, const std::vector<T>& v) {
-    std::vector<T> res;
-    T storage = 0;
+template<typename T, typename Q>
+std::vector<decltype(std::declval<T>() + std::declval<Q>())> operator*(const CSR<T>& csr, const std::vector<Q>& v) {
+    std::vector<decltype(std::declval<T>() + std::declval<Q>())> res;
+    decltype(std::declval<T>() + std::declval<Q>()) storage = 0;
     for (int i = 0; i < csr.get_rows().size() - 1; i++) {
         storage = 0;
         for (int k = csr.get_rows()[i]; k < csr.get_rows()[i + 1]; k++) {
