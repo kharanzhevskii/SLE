@@ -9,6 +9,7 @@ std::vector<double> jacobi(const CSR<T>& csr, const std::vector<T>& b, const std
     double storage = 0;
     r =  b - csr * x;
     double rr = std::sqrt(r * r);
+
     while (rr > percision){
         for (int i = 0; i < b.size(); i++){
             storage = 0;
@@ -23,5 +24,6 @@ std::vector<double> jacobi(const CSR<T>& csr, const std::vector<T>& b, const std
         r = b - csr * x;
         rr = std::sqrt(r * r);
     }
+    
     return x;
 }        

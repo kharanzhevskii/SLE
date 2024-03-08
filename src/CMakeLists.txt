@@ -3,7 +3,7 @@ if (USE_GLOB)
     add_library(${MODULE_NAME} STATIC ${SOURCES})
 else ()
     set(HEADERS
-        iterative/jacobi.h
+        iterative/gauss-seidel.h
         )
 
     set(SOURCES
