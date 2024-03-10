@@ -1,4 +1,6 @@
-#include "../matrix/CSR.h"
+#pragma once
+
+#include "matrix/CSR.h"
 #include <cmath>
 
 template<typename T>

@@ -4,12 +4,12 @@
 
 TEST(Test, TestCSR) {
     std::vector<double> val{1, 2, 3, 4, 1, 11};
-    std::vector<int> col{0, 1, 3, 2, 1, 3};
-    std::vector<int> row{0, 3, 4, 6};
+    std::vector<unsigned long int> col{0, 1, 3, 2, 1, 3};
+    std::vector<unsigned long int> row{0, 3, 4, 6};
     CSR<double> csr(val, col, row);
     std::vector<double> mul{1, 2, 3, 4}, ans{17, 12, 46}, res(3, 0);
     res = csr * mul;
-    for (int i = 0; i < 3; i++){
+    for (unsigned long int i = 0; i < 3; i++){
         ASSERT_NEAR(res[i], ans[i], 1e-12);
     }
     std::cout << csr;
@@ -21,7 +21,7 @@ TEST(Test, TestDense) {
     Dense<double> dense(vald, c, r);
     std::vector<double> mul{1, 2, 3, 4}, ans{17, 12, 46}, res(3, 0);
     res = dense * mul;
-    for (int i = 0; i < 3; i++){
+    for (unsigned long int i = 0; i < 3; i++){
         ASSERT_NEAR(res[i], ans[i], 1e-12);
     }
     std::cout << dense;

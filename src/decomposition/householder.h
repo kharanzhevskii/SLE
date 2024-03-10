@@ -1,6 +1,6 @@
 #pragma once
 
-#include"../matrix/dense.h"
+#include"matrix/dense.h"
 #include <cmath>
 
 template<typename T>
