@@ -1,0 +1,26 @@
+NAME
+tridiagonal(const std::vector<T>& A, const long unsigned int n_) - solver of equasions with tridiagonal matrix
+
+SYNOPSIS
+#include <tridiag/tridiagonal.h>
+std::vector<double> tridiagonal(const std::vector<...>& A, const long unsigned int n_);
+
+DESCRIPTION
+The method is stable if and only if matrix has strict diagonal predominance, or non-strict diagonal predominance and its determinant != 0.
+
+n_ is the size of a square matrix.
+
+Vector A consists of sequentially arranged vectors in that order:
+under the diagonal {a} values (n_ - 1)
+diagonal values {b} (n_)
+above the diagonal {c} values (n_ - 1)
+column b {d} (n_)
+
+EXAMPLES
+|| 1 4     ||       || 5 ||
+|| 2 2 4   || * x = || 4 ||
+||   2 3 4 ||       || 7 ||
+||     2 4 ||       || 8 ||
+Should be transformed into
+std::vector<double> A {2, 2, 2, 1, 2, 3, 4, 4, 4, 4, 5, 4, 7, 8};
+std::vector<double> x = tridiagonal(A, 4);

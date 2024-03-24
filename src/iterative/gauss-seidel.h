@@ -8,7 +8,7 @@ std::vector<double> gauss_seidel(const CSR<T>& csr, const std::vector<T>& b,cons
     std::vector<double> x = x0;
     std::vector<double> r(b.size()); 
     double storage = 0;
-    r =  b - csr * x;
+    r = csr * x - b;
     double rr = std::sqrt(r * r);
 
     while (rr > percision){

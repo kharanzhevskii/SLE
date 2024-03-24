@@ -3,10 +3,12 @@ if (USE_GLOB)
     add_library(${MODULE_NAME} STATIC ${SOURCES})
 else ()
     set(HEADERS
-        chebyshev/chebyshev.h
+        iterative/richardson.h
+        iterative/richardson_improved.h
         )
 
     set(SOURCES
+        
         )
 
     source_group("Header Files" FILES ${HEADERS})
