@@ -3,8 +3,7 @@ if (USE_GLOB)
     add_library(${MODULE_NAME} STATIC ${SOURCES})
 else ()
     set(HEADERS
-        iterative/richardson.h
-        iterative/richardson_improved.h
+        iterative/SGS.h
         )
 
     set(SOURCES
