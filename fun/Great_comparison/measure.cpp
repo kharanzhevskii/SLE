@@ -408,7 +408,7 @@ int main(){
     double percision = 1e-12, lambda_min, lambda_max, ro_1 = 0.9, ro_2 = 0.95;
     long unsigned int r_1 = 7, r_2 = 15;
 
-    std::vector<double> eigenvalues = elleptic_eigenvalues(64, 1.0, 5.0);
+    std::vector<double> eigenvalues = elliptic_eigenvalues(64, 1.0, 5.0);
     lambda_min = eigenvalues[0];
     lambda_max = eigenvalues[eigenvalues.size()-1];
 

@@ -78,7 +78,7 @@ CSR<T> elliptic(const unsigned long int L, const T a, const T b){
 }
 
 template<typename T>
-std::vector<double> elleptic_eigenvalues(const unsigned long int L, const T a_, const T b_){
+std::vector<double> elliptic_eigenvalues(const unsigned long int L, const T a_, const T b_){
     const double a = static_cast<double>(a_);
     const double b = static_cast<double>(b_);
 
@@ -110,7 +110,7 @@ std::vector<double> elleptic_eigenvalues(const unsigned long int L, const T a_, 
 }
 
 template<typename T>
-double elleptic_chi2(const unsigned long int L, const T a_, const T b_){
+double elliptic_chi2(const unsigned long int L, const T a_, const T b_){
     const double a = static_cast<double>(a_);
     const double b = static_cast<double>(b_);
 
