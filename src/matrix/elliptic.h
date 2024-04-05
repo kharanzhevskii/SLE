@@ -82,7 +82,6 @@ std::vector<double> elleptic_eigenvalues(const unsigned long int L, const T a_, 
     const double a = static_cast<double>(a_);
     const double b = static_cast<double>(b_);
 
-    const unsigned long int N = L * L;
     std::vector<double> roots(L, 0);
     std::vector<double> res;
 

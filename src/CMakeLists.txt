@@ -3,7 +3,8 @@ if (USE_GLOB)
     add_library(${MODULE_NAME} STATIC ${SOURCES})
 else ()
     set(HEADERS
-        iterative/SGS.h
+        chebyshev/chebSGS.h
+        matrix/elliptic.h
         )
 
     set(SOURCES

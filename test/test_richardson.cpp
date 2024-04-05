@@ -11,7 +11,7 @@ TEST(Richardson, Richardson) {
     std::vector<double> b{2, 4, 8}, ans{0, 2, 2}, res(3, 0), x0{1, 1, 1};
     const double percision = 1e-10;
     const double t = 0.4;
-    res = richardson(csr, b, x0, percision, t);
+    res = richardson(csr, b, x0, t, percision);
     for (std::size_t i = 0; i < res.size(); i++){
         ASSERT_NEAR(res[i], ans[i], 1e-9);
     }

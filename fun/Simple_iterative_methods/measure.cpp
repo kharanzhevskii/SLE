@@ -81,7 +81,7 @@ void jacobi(const CSR<double>& csr, const std::vector<double>& b, const std::vec
 }  
 
 
-void richardson(const CSR<double>& csr, const std::vector<double>& b, const std::vector<double>& x0, const double percision, const double t){
+void richardson(const CSR<double>& csr, const std::vector<double>& b, const std::vector<double>& x0, const double t, const double percision){
     std::ofstream timer, counter;
     timer.open("richardson_timer.txt");
     counter.open("richardson_counter.txt");
@@ -209,6 +209,6 @@ int main(){
     chebyshev(csr, b, x0, lambda_max, lambda_min, r_, percision);
     jacobi(csr, b, x0, percision);
     gauss_seidel(csr, b, x0, percision);
-    richardson(csr, b, x0, percision, t);
+    richardson(csr, b, x0, t, percision);
     return 0;
 }
