@@ -2,7 +2,7 @@
 
 SLE is a C++ template library for solving Systems of Linear Equations with square matrices.
 
-(/fun/Gradient_methods_on_contour/steps_contour.png)
+![Contour projection of steps of gradient methods onto the plane of eigenvectors, corresponding to minimum and maximum eigenvalues.](/fun/Gradient_methods_on_contour/steps_contour.png)
 
 The library is optimized for the fastest solution search, so errors and discrepancies of the method are **NOT** registered.
 
