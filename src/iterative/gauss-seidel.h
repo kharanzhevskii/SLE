@@ -7,7 +7,7 @@ template<typename T>
 std::vector<double> gauss_seidel(const CSR<T>& csr, const std::vector<T>& b,const std::vector<T>& x0, const double percision){
     std::vector<double> x = x0;
     std::vector<double> r(b.size()); 
-    double storage = 0;
+    double storage = 0, central = 0;
     r = csr * x - b;
     double rr = std::sqrt(r * r);
 
@@ -18,8 +18,9 @@ std::vector<double> gauss_seidel(const CSR<T>& csr, const std::vector<T>& b,cons
                 if (csr.get_cols()[j] != i){
                     storage += csr.get_values()[j] * x[csr.get_cols()[j]];
                 }
+                else central = csr.get_values()[j];
             }
-            x[i] = (b[i] - storage) / csr(i,i);
+            x[i] = (b[i] - storage) / central;
         }
         r = csr * x - b;
         rr = std::sqrt(r * r);

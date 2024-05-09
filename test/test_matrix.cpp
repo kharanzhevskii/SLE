@@ -17,7 +17,7 @@ TEST(Test, TestCSR) {
 
 TEST(Test, TestDense) {
     std::vector<double> vald{1, 2, 0, 3, 0, 0, 4, 0, 0, 1, 0, 11};
-    int c = 3, r = 4;
+    unsigned long int c = 3, r = 4;
     Dense<double> dense(vald, c, r);
     std::vector<double> mul{1, 2, 3, 4}, ans{17, 12, 46}, res(3, 0);
     res = dense * mul;

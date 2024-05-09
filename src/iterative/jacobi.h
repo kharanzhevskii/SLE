@@ -8,19 +8,20 @@ std::vector<double> jacobi(const CSR<T>& csr, const std::vector<T>& b, const std
     std::vector<double> x = x0;
     std::vector<double> x_next(b.size());
     std::vector<double> r(b.size());
-    double storage = 0;
+    double storage = 0, central = 0;
     r = csr * x - b;
     double rr = std::sqrt(r * r);
 
     while (rr > percision){
-        for (int i = 0; i < b.size(); i++){
+        for (unsigned long int i = 0; i < b.size(); i++){
             storage = 0;
-            for (int j = csr.get_rows()[i]; j < csr.get_rows()[i+1]; j++){
+            for (unsigned long int j = csr.get_rows()[i]; j < csr.get_rows()[i+1]; j++){
                 if (csr.get_cols()[j] != i){
                     storage += csr.get_values()[j] * x[csr.get_cols()[j]];
                 }
+                else central = csr.get_values()[j];
             }
-            x_next[i] = (b[i] - storage) / csr(i,i);
+            x_next[i] = (b[i] - storage) / central;
         }
         x = x_next;
         r = b - csr * x;

@@ -7,7 +7,7 @@ template<typename T>
 std::vector<double> SGS(const CSR<T>& csr, const std::vector<T>& b, const std::vector<T>& x0, const double percision){
     std::vector<double> x = x0;
     std::vector<double> r(b.size()); 
-    double storage = 0;
+    double storage = 0, central = 0;
     r = csr * x - b;
     double rr = std::sqrt(r * r);
 
@@ -18,8 +18,9 @@ std::vector<double> SGS(const CSR<T>& csr, const std::vector<T>& b, const std::v
                 if (csr.get_cols()[j] != i){
                     storage += csr.get_values()[j] * x[csr.get_cols()[j]];
                 }
+                else central = csr.get_values()[j];
             }
-            x[i] = (b[i] - storage) / csr(i,i);
+            x[i] = (b[i] - storage) / central;
         }
         for (unsigned long int i = 0; i < b.size(); i++){
             storage = 0;
@@ -27,8 +28,9 @@ std::vector<double> SGS(const CSR<T>& csr, const std::vector<T>& b, const std::v
                 if (csr.get_cols()[j] != b.size()-i-1){
                     storage += csr.get_values()[j] * x[csr.get_cols()[j]];
                 }
+                else central = csr.get_values()[j];
             }
-            x[b.size()-i-1] = (b[b.size()-i-1] - storage) / csr(b.size()-i-1, b.size()-i-1);
+            x[b.size()-i-1] = (b[b.size()-i-1] - storage) / central;
         }
         r = csr * x - b;
         rr = std::sqrt(r * r);

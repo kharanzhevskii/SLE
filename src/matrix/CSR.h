@@ -12,6 +12,40 @@ public:
     CSR (const std::vector<T>& values, const std::vector<unsigned long int>& cols, const std::vector<unsigned long int>& rows):
         values(values), cols(cols), rows(rows) {}
 
+    CSR (const std::vector<std::vector<T>>& data){
+        unsigned long int amount = 0;
+        unsigned long int width = data[0].size();
+        unsigned long int height = data.size();
+        rows.resize(height + 1);
+        rows[0] = amount;
+        for (unsigned long int i = 0; i < height; i++){
+            for (unsigned long int j = 0; j < width; j++){
+                if (data[i][j] != 0) {
+                    values.push_back(data[i][j]);
+                    cols.push_back(j);
+                    amount++;
+                }
+            }
+            rows[i+1] = amount;
+        }
+    }
+
+    CSR (const std::vector<T>& data, unsigned long int height, unsigned long int width){
+        unsigned long int amount = 0;
+        rows.resize(height + 1);
+        rows[0] = amount;
+        for (unsigned long int i = 0; i < height; i++){
+            for (unsigned long int j = 0; j < width; j++){
+                if (data[i * width + j] != 0) {
+                    values.push_back(data[i * width + j]);
+                    cols.push_back(j);
+                    amount++;
+                }
+            }
+            rows[i+1] = amount;
+        }
+    }
+
     const std::vector<T>& get_values() const{
         return values;
     }
